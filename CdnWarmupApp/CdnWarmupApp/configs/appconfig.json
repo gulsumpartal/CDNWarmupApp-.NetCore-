@@ -1,5 +1,5 @@
 ﻿{
-  "Url": "https://c.1v1y.net",
+  "Url": "https://medianova.image.net",
   "ShowConsoleLog":  false,
   "Times": [
     {
@@ -12,7 +12,7 @@
 
 //Sample Config
 //{
-//  "Url": "https://c.1v1y.net",
+//  "Url": "https://medianova.image.net",
 //  "UrlResizeSection": "mnresize",
 //  "ShowConsoleLog":  true,
 //  "Dimensions": [
