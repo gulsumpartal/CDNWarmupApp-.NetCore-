@@ -1,0 +1,40 @@
+﻿{
+  "Url": "https://c.1v1y.net",
+  "ShowConsoleLog":  false,
+  "Times": [
+    {
+      "StartTime": "00:00",
+      "EndTime": "23:59",
+      "ThreadCount": 100
+    }
+  ]
+}
+
+//Sample Config
+//{
+//  "Url": "https://c.1v1y.net",
+//  "UrlResizeSection": "mnresize",
+//  "ShowConsoleLog":  true,
+//  "Dimensions": [
+//    {
+//      "Height": 300,
+//      "Width": 400
+//    },
+//    {
+//      "Height": 350,
+//      "Width": 500
+//    }
+//  ],
+//  "Times": [
+//    {
+//      "StartTime": "00:00",
+//      "EndTime": "16:59",
+//      "ThreadCount": 100
+//    },
+//    {
+//      "StartTime": "17:00",
+//      "EndTime": "23:59",
+//      "ThreadCount": 50
+//    }
+//  ]
+//}
