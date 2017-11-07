@@ -23,99 +23,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Remove="configs\appconfig.json" />
-    <None Remove="unprocessedFiles\images.csv" />
-    <None Remove="processingFiles\images-7ec8bc51955e422187002f3778d5ca0e.csv" />
-    <None Remove="processingFiles\images-016ba1cb5ddd40e69e5658a40eb598b3.json" />
-    <None Remove="processingFiles\images-0b5b2297352c40e68cb7d9b707c17f91.json" />
-    <None Remove="processingFiles\images-0de7949057a64caa8b5a6cf3186788ab.json" />
-    <None Remove="processingFiles\images-5ca81f3fced54a44b2b07b43764ac157.json" />
-    <None Remove="processingFiles\images-5dee0e09a906455cb2786200cca31593.json" />
-    <None Remove="processingFiles\images-5f70ac5f6ad84fc0af7b924204c0483c.json" />
-    <None Remove="processingFiles\images-61b3d2b3489d4fcdb51bb909d2b3b7c8.json" />
-    <None Remove="processingFiles\images-641bbb196eb449fa956c678bf12f91cb.json" />
-    <None Remove="processingFiles\images-6476be3c5b41424a9673bb2a539b400b.json" />
-    <None Remove="processingFiles\images-72edde7468b64b85a9e563595ff093ac.json" />
-    <None Remove="processingFiles\images-76a49e1bab86464bb24c0a1324acaa7f.json" />
-    <None Remove="processingFiles\images-9b1d24c12eb64fd1a48376a3364208f6.json" />
-    <None Remove="processingFiles\images-c5fcaa0a1fa64e6c939b8683faac71e1.json" />
-    <None Remove="processingFiles\images-cb5d1d35916747f4aba5de7a84cf0a00.json" />
-    <None Remove="processingFiles\images-ce6e6b0ee8de47258931e4d2b540d2c9.json" />
-    <None Remove="processingFiles\images-ddf09f46be3c4b26839a307586d27f09.json" />
-    <None Remove="processingFiles\images-eb9252278ed74a0b91346f307db3398e.json" />
-    <None Remove="processingFiles\images-f2889e12fb7e4d5ca3636860ff38612f.json" />
-    <None Remove="processedFiles\images-016ba1cb5ddd40e69e5658a40eb598b3.json" />
-    <None Remove="processedFiles\images-0b5b2297352c40e68cb7d9b707c17f91.json" />
-    <None Remove="processedFiles\images-5ca81f3fced54a44b2b07b43764ac157.json" />
-    <None Remove="processedFiles\images-5dee0e09a906455cb2786200cca31593.json" />
-    <None Remove="processedFiles\images-61b3d2b3489d4fcdb51bb909d2b3b7c8.json" />
-    <None Remove="processedFiles\images-641bbb196eb449fa956c678bf12f91cb.json" />
-    <None Remove="processedFiles\images-6476be3c5b41424a9673bb2a539b400b.json" />
-    <None Remove="processedFiles\images-76a49e1bab86464bb24c0a1324acaa7f.json" />
-    <None Remove="processedFiles\images-9b1d24c12eb64fd1a48376a3364208f6.json" />
-    <None Remove="processedFiles\images-cb5d1d35916747f4aba5de7a84cf0a00.json" />
-    <None Remove="processedFiles\images-ce6e6b0ee8de47258931e4d2b540d2c9.json" />
-    <None Remove="processedFiles\images-ddf09f46be3c4b26839a307586d27f09.json" />
-    <None Remove="processedFiles\images-eb9252278ed74a0b91346f307db3398e.json" />
     <None Remove="configs\log4net.config" />
-    <None Remove=".DS_Store" />
-    <None Remove="processedFiles\images-1a572f8a54b84113a3b3cdeb51478e7a.json" />
-    <None Remove="processedFiles\images-4513b732b4fa42aa99f6f8d26882d591.json" />
-    <None Remove="processedFiles\images-52a33bec66d34d5bb007711091043bf1.json" />
-    <None Remove="processedFiles\images-58fa85a65b4a436fb74607ff58b02954.json" />
-    <None Remove="processedFiles\images-d6a5f2f0c5904bbc8d069783ae75aaa7.json" />
-    <None Remove="processedFiles\images-fe41a6244beb4713a4d509e5085b8154.json" />
-    <None Remove="processingFiles\images-01dbdbb947fc4bde87017d6ba3d94b82.json" />
-    <None Remove="processingFiles\images-02fa5cdf98964c60a4c170c1a66dda5b.json" />
-    <None Remove="processingFiles\images-07231c14706e4dd98b2bcc2622aa9448.json" />
-    <None Remove="processingFiles\images-1270ff6b04924011ae6f0845283142e4.json" />
-    <None Remove="processingFiles\images-14c7ac9821b446f79cc2e81d80050d7c.json" />
-    <None Remove="processingFiles\images-19a412ae4fd74667b24f4d5b04955f57.json" />
-    <None Remove="processingFiles\images-1a572f8a54b84113a3b3cdeb51478e7a.json" />
-    <None Remove="processingFiles\images-1e0881315164419589fb0f34af51d866.json" />
-    <None Remove="processingFiles\images-23680ece35164f3098ade1c709e0351f.json" />
-    <None Remove="processingFiles\images-264cb79c3a1b4cf1a9e95bfa381f71b3.json" />
-    <None Remove="processingFiles\images-2890a728c9014f699a5b3b0434aa8348.json" />
-    <None Remove="processingFiles\images-2954325704b44c78967df973ae0faeeb.json" />
-    <None Remove="processingFiles\images-296b1101864a48b8ac136d5d887f4ee2.json" />
-    <None Remove="processingFiles\images-30f7beebc54e418795b8cff32c21b296.json" />
-    <None Remove="processingFiles\images-4513b732b4fa42aa99f6f8d26882d591.json" />
-    <None Remove="processingFiles\images-4b16dd223fcc489a8cffd9ccef415f25.json" />
-    <None Remove="processingFiles\images-4f1244ab6650466b8c4e64bf48f1f9d6.json" />
-    <None Remove="processingFiles\images-52a33bec66d34d5bb007711091043bf1.json" />
-    <None Remove="processingFiles\images-58fa85a65b4a436fb74607ff58b02954.json" />
-    <None Remove="processingFiles\images-5edc1a53043148c18d9cbbb2f9f5fd2c.json" />
-    <None Remove="processingFiles\images-62a1ee7ace5b4178a6fada8fa920eda5.json" />
-    <None Remove="processingFiles\images-6594ed62919440d686308d57f92bcfc3.json" />
-    <None Remove="processingFiles\images-6bb815c565de4f1b9fa515d4d544c282.json" />
-    <None Remove="processingFiles\images-6f078f3f78a74c8a87d2250146e4bf7c.json" />
-    <None Remove="processingFiles\images-6f5be6d16d45492dbc2be0cdf9766e71.json" />
-    <None Remove="processingFiles\images-809f0240dde445a8915347e786eccd0e.json" />
-    <None Remove="processingFiles\images-ac892199d8b44780ae276795cbd51e24.json" />
-    <None Remove="processingFiles\images-ad561a67047842639c2498d6192e1d2d.json" />
-    <None Remove="processingFiles\images-c1618c8be9a94222b4bf07caf950d8e5.json" />
-    <None Remove="processingFiles\images-c3cd9cd4e6254424a8a0ac6cc73d94b3.json" />
-    <None Remove="processingFiles\images-ca820a2cc7fb45dcad151e5169801514.json" />
-    <None Remove="processingFiles\images-cd07f67ae39e4fbba7d7fe7720d45dcb.json" />
-    <None Remove="processingFiles\images-d30da040549c40fda03e1e9f20164fae.json" />
-    <None Remove="processingFiles\images-d6a5f2f0c5904bbc8d069783ae75aaa7.json" />
-    <None Remove="processingFiles\images-d6e33eba6c964209a203144620a4129b.json" />
-    <None Remove="processingFiles\images-d7162c6f6a254deea1f4d08fada810aa.json" />
-    <None Remove="processingFiles\images-e7414ee91ade447bace6cd7bc3ae8b0f.json" />
-    <None Remove="processingFiles\images-eedd75345e2d40e88e0edd756dd2e7d5.json" />
-    <None Remove="processingFiles\images-f1ee4654db6f42a68cf37425fdd9c397.json" />
-    <None Remove="processingFiles\images-f2bd0c1cf58942bfbb60876313c139af.json" />
-    <None Remove="processingFiles\images-fa57bceb7b8e4ea7895b35aad556b089.json" />
-    <None Remove="processingFiles\images-fe41a6244beb4713a4d509e5085b8154.json" />
     <None Remove="files\unprocessedFiles\images.json" />
-    <None Remove="files\processingFiles\images.json" />
-    <None Remove="files\processedFiles\images.json" />
-    <None Remove="files\processedFiles\images-d40d986d6f564d52a51b26b4540ef6b5.json" />
-    <None Remove="files\processingFiles\images-19a7d42740624b0f8926a485af247c4e.json" />
-    <None Remove="files\processingFiles\images-4b9d0cb762ea481bbaaa2554967c6417.json" />
-    <None Remove="files\processingFiles\images-a2bceaa7d6f747558dfc0c0dcb1d6330.json" />
-    <None Remove="files\processingFiles\images-d40d986d6f564d52a51b26b4540ef6b5.json" />
     <None Remove="files\processingFiles\images-ee132be1fc9943a2a8cbbd20a504c635.json" />
-  </ItemGroup>
+    <None Remove="files\processedFiles\images-6d61f22e528d4b21adfb1a17fd60ff58.json" />
+   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="configs\appconfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -126,10 +38,5 @@
     <EmbeddedResource Include="files\unprocessedFiles\images.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Update="unprocessedFiles\images.csv">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
   </ItemGroup>
 </Project>
