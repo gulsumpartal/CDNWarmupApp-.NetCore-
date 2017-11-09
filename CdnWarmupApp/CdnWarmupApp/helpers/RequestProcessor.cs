@@ -15,21 +15,21 @@ namespace CdnWarmupApp.helpers
 {
     public class RequestProcessor
     {
-        static string appConfigFileFullPath = Path.Combine(Directory.GetCurrentDirectory(), "configs/appconfig.json");
-        static string log4netConfigFileFullPath = Path.Combine(Directory.GetCurrentDirectory(), "configs/log4net.config");
+        private static readonly string AppConfigFileFullPath = Path.Combine(Directory.GetCurrentDirectory(), "configs/appconfig.json");
+        private static readonly string Log4NetConfigFileFullPath = Path.Combine(Directory.GetCurrentDirectory(), "configs/log4net.config");
 
-        static string unprocessedFileFolderFullPath = Path.Combine(Directory.GetCurrentDirectory(), "files/unprocessedFiles");
-        static string processingFileFolderFullPath = Path.Combine(Directory.GetCurrentDirectory(), "files/processingFiles");
-        static string processedFileFolderFullPath = Path.Combine(Directory.GetCurrentDirectory(), "files/processedFiles");
+        private static readonly string UnprocessedFileFolderFullPath = Path.Combine(Directory.GetCurrentDirectory(), "files/unprocessedFiles");
+        private static readonly string ProcessingFileFolderFullPath = Path.Combine(Directory.GetCurrentDirectory(), "files/processingFiles");
+        private static readonly string ProcessedFileFolderFullPath = Path.Combine(Directory.GetCurrentDirectory(), "files/processedFiles");
 
-        static string logLineTemplate = "FileName : {0} - RequestUrl : {1} - FileSize : {2} kb - RequestDownloadTotalTime : {3} second - LogTime : {4}";
+        private const string LogLineTemplate = "FileName : {0} - RequestUrl : {1} - FileSize : {2} kb - RequestDownloadTotalTime : {3} second - LogTime : {4}";
 
-        static string urlTemplate = "{0}/{1}";
-        static string urlTemplateWithResize = "{0}/{1}/{2}/{3}/{4}";
+        private const string UrlTemplate = "{0}/{1}";
+        private const string UrlTemplateWithResize = "{0}/{1}/{2}/{3}/{4}";
 
-        static int defaultThreadCount = 4;
+        private const int DefaultThreadCount = 4;
 
-        static AppConfigFile configFile
+        static AppConfigFile ConfigFile
         {
             get;
             set;
@@ -42,7 +42,7 @@ namespace CdnWarmupApp.helpers
 
             try
             {
-                var unprocessedFiles = Directory.GetFiles(unprocessedFileFolderFullPath);
+                var unprocessedFiles = Directory.GetFiles(UnprocessedFileFolderFullPath);
                 foreach (var unprocessedFile in unprocessedFiles)
                 {
                     FileInfo currentUnprocessedFileInfo = new FileInfo(unprocessedFile);
@@ -51,7 +51,7 @@ namespace CdnWarmupApp.helpers
 
                     var currentUnprocessedFileFullPath = currentUnprocessedFileInfo.FullName;
                     var tempFileName = currentUnprocessedFileInfo.Name.Replace(currentUnprocessedFileInfo.Extension, string.Empty) + "-" + Guid.NewGuid().ToString("N") + currentUnprocessedFileInfo.Extension;
-                    var processingFileFullPath = processingFileFolderFullPath + "/" + tempFileName;
+                    var processingFileFullPath = ProcessingFileFolderFullPath + "/" + tempFileName;
 
                     File.Copy(currentUnprocessedFileFullPath, processingFileFullPath);
 
@@ -65,7 +65,7 @@ namespace CdnWarmupApp.helpers
                         Parallel.ForEach(requestUrls, paraleloptions, currentRequestUrl => { MakeRequest(currentRequestUrl, currentUnprocessedFileInfo.Name); });
                     });
 
-                    var processedFileFullPath = processedFileFolderFullPath + "/" + tempFileName;
+                    var processedFileFullPath = ProcessedFileFolderFullPath + "/" + tempFileName;
                     File.Copy(processingFileFullPath, processedFileFullPath);
                 }
             }
@@ -81,11 +81,11 @@ namespace CdnWarmupApp.helpers
         {
             try
             {
-                var fileContent = File.ReadAllText(appConfigFileFullPath);
-                configFile = JsonConvert.DeserializeObject<AppConfigFile>(fileContent);
+                var fileContent = File.ReadAllText(AppConfigFileFullPath);
+                ConfigFile = JsonConvert.DeserializeObject<AppConfigFile>(fileContent);
 
                 var logRepository = LogManager.GetRepository(Assembly.GetEntryAssembly());
-                XmlConfigurator.Configure(logRepository, new FileInfo(log4netConfigFileFullPath));
+                XmlConfigurator.Configure(logRepository, new FileInfo(Log4NetConfigFileFullPath));
             }
             catch (Exception ex)
             {
@@ -94,7 +94,7 @@ namespace CdnWarmupApp.helpers
                 Console.WriteLine("Initilize Config File Error:");
                 Console.WriteLine("-----------------------------");
                 Console.WriteLine(string.Empty);
-                throw ex;
+                throw;
             }
         }
 
@@ -102,7 +102,7 @@ namespace CdnWarmupApp.helpers
         {
             try
             {
-                var fileSize = 0;
+                int fileSize;
                 Stopwatch requestReswponseTimer = new Stopwatch();
                 requestReswponseTimer.Start();
                 using (WebClient client = new WebClient())
@@ -113,7 +113,7 @@ namespace CdnWarmupApp.helpers
                 requestReswponseTimer.Stop();
                 var operationTime = requestReswponseTimer.Elapsed.TotalSeconds;
 
-                var logMessage = string.Format(logLineTemplate, currentUnprocessedFileInfoName, currentRequestUrl, fileSize.ToString(), operationTime.ToString(), DateTime.Now);
+                var logMessage = string.Format(LogLineTemplate, currentUnprocessedFileInfoName, currentRequestUrl, fileSize.ToString(), operationTime.ToString(), DateTime.Now);
                 LoggerHelper.GetLogger.Info(logMessage);
 
                 ConsoleLog(logMessage);
@@ -127,12 +127,12 @@ namespace CdnWarmupApp.helpers
         List<string> PrepareUrl(string fileName)
         {
             var response = new List<string>();
-            response.Add(string.Format(urlTemplate, configFile.Url, fileName));
-            if (!string.IsNullOrEmpty(configFile.UrlResizeSection) && configFile.Dimensions != null && configFile.Dimensions.Any())
+            response.Add(string.Format(UrlTemplate, ConfigFile.Url, fileName));
+            if (!string.IsNullOrEmpty(ConfigFile.UrlResizeSection) && ConfigFile.Dimensions != null && ConfigFile.Dimensions.Any())
             {
-                foreach (var currentDimension in configFile.Dimensions)
+                foreach (var currentDimension in ConfigFile.Dimensions)
                 {
-                    response.Add(string.Format(urlTemplateWithResize, configFile.Url, configFile.UrlResizeSection, currentDimension.Width, currentDimension.Height, fileName));
+                    response.Add(string.Format(UrlTemplateWithResize, ConfigFile.Url, ConfigFile.UrlResizeSection, currentDimension.Width, currentDimension.Height, fileName));
                 }
             }
 
@@ -141,10 +141,10 @@ namespace CdnWarmupApp.helpers
 
         int GetThreadCount()
         {
-            var response = defaultThreadCount;
-            if (configFile.Times != null && configFile.Times.Any())
+            var response = DefaultThreadCount;
+            if (ConfigFile.Times != null && ConfigFile.Times.Any())
             {
-                var currentThreadConfig = configFile.Times.FirstOrDefault(p => p.ValidateDate());
+                var currentThreadConfig = ConfigFile.Times.FirstOrDefault(p => p.ValidateDate());
                 if (currentThreadConfig != null && currentThreadConfig.ThreadCount != 0)
                 {
                     response = currentThreadConfig.ThreadCount;
@@ -155,7 +155,7 @@ namespace CdnWarmupApp.helpers
         }
 
         void ConsoleLog(string message, Boolean overrideConfigSetting = false, Boolean emptyLine = false){
-            if (overrideConfigSetting || configFile.ShowConsoleLog)
+            if (overrideConfigSetting || ConfigFile.ShowConsoleLog)
             {
                 Console.WriteLine(message);
             }

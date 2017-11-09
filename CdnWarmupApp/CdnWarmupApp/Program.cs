@@ -5,7 +5,7 @@ namespace CdnWarmupApp
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             Console.WriteLine("CDN Warmup Console Schedular App Started....");
             Console.WriteLine("--------------------------------------------");

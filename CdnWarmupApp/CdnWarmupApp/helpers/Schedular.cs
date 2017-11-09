@@ -6,10 +6,10 @@ namespace CdnWarmupApp.helpers
 {
     public class Schedular
     {
-        static int taskIntervalSecond = 10;
-        static string jobName = "CdnWarmupJob";
-        static string groupName = "CdnWarmupGroup";
-        static string triggerName = "CdnWarmupTrigger";
+        private const int TaskIntervalSecond = 10;
+        private const string JobName = "CdnWarmupJob";
+        private const string GroupName = "CdnWarmupGroup";
+        private const string TriggerName = "CdnWarmupTrigger";
 
         public static async Task Run()
         {
@@ -19,9 +19,9 @@ namespace CdnWarmupApp.helpers
                 IScheduler sched = factory.GetScheduler().Result;
                 sched.Start().Wait();
 
-                IJobDetail job = JobBuilder.Create<CdnWarmupJob>().WithIdentity(jobName, groupName).Build();
+                IJobDetail job = JobBuilder.Create<CdnWarmupJob>().WithIdentity(JobName, GroupName).Build();
 
-                ITrigger trigger = TriggerBuilder.Create().WithIdentity(triggerName, groupName).StartNow().WithSimpleSchedule(x => x.WithIntervalInSeconds(taskIntervalSecond).RepeatForever()).Build();
+                ITrigger trigger = TriggerBuilder.Create().WithIdentity(TriggerName, GroupName).StartNow().WithSimpleSchedule(x => x.WithIntervalInSeconds(TaskIntervalSecond).RepeatForever()).Build();
 
                 await sched.ScheduleJob(job, trigger);
             }

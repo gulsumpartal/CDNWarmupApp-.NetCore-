@@ -1,11 +1,9 @@
-<Project Sdk="Microsoft.NET.Sdk">
-
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <RuntimeIdentifiers>win10-x64;osx-x64;linux-x64;centos.7-x64</RuntimeIdentifiers>
   </PropertyGroup>
-
   <ItemGroup>
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="Quartz" Version="3.0.0-beta1" />
@@ -13,6 +11,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="configs\" />
+    <Folder Include="logs" />
     <Folder Include="models\" />
     <Folder Include="helpers\" />
     <Folder Include="logs\" />
@@ -27,7 +26,7 @@
     <None Remove="files\unprocessedFiles\images.json" />
     <None Remove="files\processingFiles\images-ee132be1fc9943a2a8cbbd20a504c635.json" />
     <None Remove="files\processedFiles\images-6d61f22e528d4b21adfb1a17fd60ff58.json" />
-   </ItemGroup>
+  </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="configs\appconfig.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

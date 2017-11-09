@@ -4,23 +4,23 @@ namespace CdnWarmupApp.helpers
 {
     public class LoggerHelper
     {
-        static volatile log4net.ILog instance;
-        static object syncRoot = new Object();
+        static volatile log4net.ILog _instance;
+        static readonly object SyncRoot = new Object();
 
         public static log4net.ILog GetLogger
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                 {
-                    lock (syncRoot)
+                    lock (SyncRoot)
                     {
-                        if (instance == null)
-                            instance = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
+                        if (_instance == null)
+                            _instance = log4net.LogManager.GetLogger(System.Reflection.MethodBase.GetCurrentMethod().DeclaringType);
                     }
                 }
 
-                return instance;
+                return _instance;
             }
         }
     }
